@@ -333,6 +333,7 @@
   | `:conflicts`    | Function of `{route #{route}} => ()` to handle conflicting routes
   | `:exception`    | Function of `Exception => Exception ` to handle creation time exceptions (default `reitit.exception/exception`)
   | `:meta-merge`   | Function of `left right => merged` to merge route-data (default `meta-merge.core/meta-merge`)
+  | `:merge-data`   | Function of `opts p x => route-data` to merge route data
   | `:update-paths` | Sequence of Vectors with elements `update-path` and `function`, used to preprocess route data
   | `:router`       | Function of `routes opts => router` to override the actual router implementation"
   ([raw-routes]

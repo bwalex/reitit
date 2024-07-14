@@ -133,7 +133,8 @@
          (ex/fail! ::merge-data {:path p, :left acc, :right {k v}, :exception e}))))
    {} x))
 
-(defn resolve-routes [raw-routes {:keys [coerce] :as opts}]
+(defn resolve-routes [raw-routes {:keys [coerce merge-data] :as opts
+                                  :or {merge-data merge-data}}]
   (cond->> (->> (walk raw-routes opts) (map-data #(merge-data opts %1 %2)))
     coerce (into [] (keep #(coerce % opts)))))
 
